@@ -1,0 +1,34 @@
+{
+  "networks": [
+    {
+      "groupId": "creator-chain",
+      "apiUrl": "",
+      "verificationApiUrl": "",
+      "bridgeUrl": "",
+      "hostnames": [],
+      "icon": "/images/icons/creator-chain.svg",
+      "l1ExplorerUrl": "https://sepolia.etherscan.io",
+      "l2ChainId": 278701,
+      "l2NetworkName": "Creator Chain Testnet",
+      "maintenance": false,
+      "name": "Creator Chain Testnet",
+      "published": true,
+      "rpcUrl": ""
+    },
+    {
+      "groupId": "creator-chain",
+      "apiUrl": "",
+      "verificationApiUrl": "",
+      "bridgeUrl": "",
+      "hostnames": [],
+      "icon": "/images/icons/creator-chain.svg",
+      "l1ExplorerUrl": "https://etherscan.io",
+      "l2ChainId": 2787,
+      "l2NetworkName": "Creator Chain",
+      "maintenance": false,
+      "name": "Creator Chain",
+      "published": true,
+      "rpcUrl": ""
+    }
+  ]
+}
