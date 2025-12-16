@@ -11,7 +11,7 @@
       "l2ChainId": 278701,
       "l2NetworkName": "Creator Chain Testnet",
       "maintenance": false,
-      "name": "Creator Chain Testnet",
+      "name": "testnet",
       "published": true,
       "rpcUrl": ""
     },
@@ -26,8 +26,8 @@
       "l2ChainId": 2787,
       "l2NetworkName": "Creator Chain",
       "maintenance": false,
-      "name": "Creator Chain",
-      "published": true,
+      "name": "mainnet",
+      "published": false,
       "rpcUrl": ""
     }
   ]
