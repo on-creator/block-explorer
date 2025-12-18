@@ -2,8 +2,8 @@
   "networks": [
     {
       "groupId": "creator-chain",
-      "apiUrl": "",
-      "verificationApiUrl": "",
+      "apiUrl": "https://block-explorer-api.zksync-os-testnet-creator.zksync.dev",
+      "verificationApiUrl": "https://block-explorer-api.zksync-os-testnet-creator.zksync.dev/api",
       "bridgeUrl": "",
       "hostnames": [],
       "icon": "/images/icons/creator-chain.svg",
@@ -13,7 +13,7 @@
       "maintenance": false,
       "name": "testnet",
       "published": true,
-      "rpcUrl": ""
+      "rpcUrl": "https://zksync-os-testnet-creator.zksync.dev"
     },
     {
       "groupId": "creator-chain",
