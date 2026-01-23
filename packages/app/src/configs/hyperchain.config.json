@@ -17,18 +17,18 @@
     },
     {
       "groupId": "creator-chain",
-      "apiUrl": "",
-      "verificationApiUrl": "",
-      "bridgeUrl": "",
-      "hostnames": [],
+      "apiUrl": "https://block-explorer-api.zksync-os-mainnet-creator.zksync.dev",
+      "verificationApiUrl": "https://block-explorer-api.zksync-os-mainnet-creator.zksync.dev/api",
+      "bridgeUrl": "https://portal.zksync-os-mainnet-creator.zksync.dev",
+      "hostnames": ["https://block-explorer.zksync-os-mainnet-creator.zksync.dev"],
       "icon": "/images/icons/creator-chain.svg",
       "l1ExplorerUrl": "https://etherscan.io",
       "l2ChainId": 2787,
-      "l2NetworkName": "Creator Chain",
+      "l2NetworkName": "Creator Chain Mainnet",
       "maintenance": false,
       "name": "mainnet",
-      "published": false,
-      "rpcUrl": ""
+      "published": true,
+      "rpcUrl": "https://zksync-os-mainnet-creator.zksync.dev"
     }
   ]
 }
