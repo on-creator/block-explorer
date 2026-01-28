@@ -2,25 +2,10 @@
   "networks": [
     {
       "groupId": "creator-chain",
-      "apiUrl": "https://block-explorer-api.zksync-os-testnet-creator.zksync.dev",
-      "verificationApiUrl": "https://block-explorer-api.zksync-os-testnet-creator.zksync.dev/api",
-      "bridgeUrl": "https://portal.zksync-os-testnet-creator.zksync.dev",
-      "hostnames": ["https://block-explorer.zksync-os-testnet-creator.zksync.dev"],
-      "icon": "/images/icons/creator-chain.svg",
-      "l1ExplorerUrl": "https://sepolia.etherscan.io",
-      "l2ChainId": 278701,
-      "l2NetworkName": "Creator Chain Testnet",
-      "maintenance": false,
-      "name": "testnet",
-      "published": true,
-      "rpcUrl": "https://zksync-os-testnet-creator.zksync.dev"
-    },
-    {
-      "groupId": "creator-chain",
-      "apiUrl": "https://block-explorer-api.zksync-os-mainnet-creator.zksync.dev",
-      "verificationApiUrl": "https://block-explorer-api.zksync-os-mainnet-creator.zksync.dev/api",
-      "bridgeUrl": "https://portal.zksync-os-mainnet-creator.zksync.dev",
-      "hostnames": ["https://block-explorer.zksync-os-mainnet-creator.zksync.dev"],
+      "apiUrl": "https://explorer-api.mainnet.oncreator.com",
+      "verificationApiUrl": "https://explorer-api.mainnet.oncreator.com/api",
+      "bridgeUrl": "https://portal.mainnet.oncreator.com",
+      "hostnames": ["https://explorer.mainnet.oncreator.com"],
       "icon": "/images/icons/creator-chain.svg",
       "l1ExplorerUrl": "https://etherscan.io",
       "l2ChainId": 2787,
@@ -28,7 +13,22 @@
       "maintenance": false,
       "name": "mainnet",
       "published": true,
-      "rpcUrl": "https://zksync-os-mainnet-creator.zksync.dev"
+      "rpcUrl": "https://rpc.mainnet.oncreator.com"
+    },
+    {
+      "groupId": "creator-chain",
+      "apiUrl": "https://explorer-api.testnet.oncreator.com",
+      "verificationApiUrl": "https://explorer-api.testnet.oncreator.com/api",
+      "bridgeUrl": "https://portal.testnet.oncreator.com",
+      "hostnames": ["https://explorer.testnet.oncreator.com"],
+      "icon": "/images/icons/creator-chain.svg",
+      "l1ExplorerUrl": "https://sepolia.etherscan.io",
+      "l2ChainId": 278701,
+      "l2NetworkName": "Creator Chain Testnet",
+      "maintenance": false,
+      "name": "testnet",
+      "published": true,
+      "rpcUrl": "https://rpc.testnet.oncreator.com"
     }
   ]
 }
