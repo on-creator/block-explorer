@@ -200,7 +200,7 @@ export default (
                 },
                 rpcUrls: [currentNetwork.rpcUrl],
                 blockExplorerUrls: [currentNetwork.explorerUrl],
-                iconUrls: ["https://oncreator.com/favicon.ico"],
+                iconUrls: ["/images/icons/creator-chain.svg"],
               },
             ],
           });
@@ -281,7 +281,7 @@ export default (
             },
             rpcUrls: [rpcUrl],
             blockExplorerUrls: [window.location.origin],
-            iconUrls: ["https://oncreator.com/favicon.ico"],
+            iconUrls: ["/images/icons/creator-chain.svg"],
           },
         ],
       });
