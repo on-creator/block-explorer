@@ -4,7 +4,7 @@
       <div class="header-container">
         <div class="logo-container">
           <router-link :to="{ name: 'home' }">
-            <span class="sr-only">ZKsync</span>
+            <span class="sr-only">Creator</span>
             <zk-sync-era v-if="currentNetwork.groupId === 'era'" />
             <zk-sync-arrows-logo v-else />
           </router-link>
@@ -165,7 +165,7 @@ const runtimeConfig = useRuntimeConfig();
 const navigation = reactive([
   {
     label: computed(() => t("header.nav.documentation")),
-    url: "https://docs.zksync.io/zksync-era/tooling/block-explorers",
+    url: "https://docs.oncreator.com",
   },
 ]);
 
@@ -205,8 +205,8 @@ if (currentNetwork.value.bridgeUrl) {
 const toolsLinks = reactive(links);
 
 const socials = [
-  { url: "https://join.zksync.dev/", component: DiscordIcon },
-  { url: "https://x.com/zksync", component: TwitterIcon },
+  { url: "https://discord.gg/oncreator", component: DiscordIcon },
+  { url: "https://x.com/oncreator_", component: TwitterIcon },
 ];
 
 const hasContent = computed(() => {

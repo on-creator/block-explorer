@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center text-center max-w-md mx-auto px-4">
       <!-- Logo -->
       <div class="mb-10">
-        <img src="/images/zksync-light.svg" class="w-[233px] h-[48px]" alt="ZKsync Logo" />
+        <img src="/images/icons/creator-chain.svg" class="h-[48px] w-auto" alt="Creator Logo" />
       </div>
 
       <!-- Heading -->

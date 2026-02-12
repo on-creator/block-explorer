@@ -2,7 +2,7 @@
   <div class="fixed inset-0 flex flex-col items-center justify-center bg-[#11142B]">
     <div class="max-w-xxl flex w-full flex-col items-center rounded-lg p-8">
       <div class="mb-10 flex justify-center">
-        <img src="/images/zksync-light.svg" class="h-[48px] w-[233px]" />
+        <img src="/images/icons/creator-chain.svg" class="h-[48px] w-auto" alt="Creator Logo" />
       </div>
       <h1 class="mb-10 text-center text-[30px] font-bold leading-[36px] tracking-[0%] text-white">
         {{ t("loginView.explorerTitle") }}

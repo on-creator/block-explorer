@@ -1,8 +1,8 @@
 {
   "name": "api",
   "version": "0.0.0",
-  "title": "ZKsync Era Block Explorer API",
-  "description": "ZKsync Era Block Explorer API",
+  "title": "Creator Block Explorer API",
+  "description": "Creator Block Explorer API",
   "author": "Matter Labs",
   "private": true,
   "license": "MIT",

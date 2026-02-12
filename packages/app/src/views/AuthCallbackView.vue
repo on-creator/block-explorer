@@ -2,7 +2,7 @@
   <div class="fixed inset-0 flex flex-col items-center justify-center bg-[#11142B]">
     <div class="p-8 rounded-lg max-w-xl w-full flex flex-col items-center">
       <div class="flex justify-center mb-10">
-        <img src="/images/zksync-light.svg" class="w-[233px] h-[48px]" />
+        <img src="/images/icons/creator-chain.svg" class="h-[48px] w-auto" alt="Creator Logo" />
       </div>
       <div v-if="!error" class="text-center">
         <h1 class="text-[30px] leading-[36px] font-bold tracking-[0%] mb-4 text-white">Completing authentication...</h1>

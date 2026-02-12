@@ -200,7 +200,7 @@ export default (
                 },
                 rpcUrls: [currentNetwork.rpcUrl],
                 blockExplorerUrls: [currentNetwork.explorerUrl],
-                iconUrls: ["https://zksync.io/favicon.ico"],
+                iconUrls: ["https://oncreator.com/favicon.ico"],
               },
             ],
           });
@@ -281,7 +281,7 @@ export default (
             },
             rpcUrls: [rpcUrl],
             blockExplorerUrls: [window.location.origin],
-            iconUrls: ["https://zksync.io/favicon.ico"],
+            iconUrls: ["https://oncreator.com/favicon.ico"],
           },
         ],
       });

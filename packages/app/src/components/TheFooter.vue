@@ -24,15 +24,15 @@ const config = useRuntimeConfig();
 const navigation = reactive([
   {
     label: computed(() => t("footer.nav.docs")),
-    url: "https://docs.zksync.io/zksync-era/tooling/block-explorers",
+    url: "https://docs.oncreator.com",
   },
   {
     label: computed(() => t("footer.nav.terms")),
-    url: "https://zksync.io/terms",
+    url: "https://oncreator.com/terms",
   },
   {
     label: computed(() => t("footer.nav.contact")),
-    url: "https://zksync.io/contact",
+    url: "https://oncreator.com/contact",
   },
 ]);
 </script>
