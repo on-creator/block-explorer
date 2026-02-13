@@ -13,7 +13,10 @@
       "maintenance": false,
       "name": "testnet",
       "published": true,
-      "rpcUrl": "https://rpc.testnet.oncreator.com"
+      "rpcUrl": "https://rpc.testnet.oncreator.com",
+      "heroBannerImageUrl": "https://assets.zksync.io/images/creator_black.svg",
+      "logoUrl": "https://assets.zksync.io/images/creator_white.svg",
+      "logoInverseUrl": "https://assets.zksync.io/images/creator_black.svg"
     },
     {
       "groupId": "creator-chain",
@@ -28,7 +31,10 @@
       "maintenance": false,
       "name": "mainnet",
       "published": true,
-      "rpcUrl": "https://rpc.mainnet.oncreator.com"
+      "rpcUrl": "https://rpc.mainnet.oncreator.com",
+      "heroBannerImageUrl": "https://assets.zksync.io/images/creator_black.svg",
+      "logoUrl": "https://assets.zksync.io/images/creator_white.svg",
+      "logoInverseUrl": "https://assets.zksync.io/images/creator_black.svg"
     }
   ]
 }
