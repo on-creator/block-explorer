@@ -5,7 +5,8 @@
         <div class="logo-container">
           <router-link :to="{ name: 'home' }">
             <span class="sr-only">ZKsync</span>
-            <zk-sync-era v-if="currentNetwork.groupId === 'era'" />
+            <img v-if="currentNetwork.logoUrl" :src="currentNetwork.logoUrl" />
+            <zk-sync-era v-else-if="currentNetwork.groupId === 'era'" />
             <zk-sync-arrows-logo v-else />
           </router-link>
         </div>
@@ -30,7 +31,7 @@
           </a>
         </PopoverGroup>
         <div class="header-right-side">
-          <WalletButton v-if="runtimeConfig.appEnvironment === 'prividium'" />
+          <WalletButton v-if="isPrividium" />
           <NetworkSwitch v-else />
           <LocaleSwitch
             :value="(locale as string)"
@@ -42,7 +43,7 @@
               }))
             "
           />
-          <div class="socials-container">
+          <div v-if="!isPrividium" class="socials-container">
             <a :href="social.url" target="_blank" rel="noopener" v-for="(social, index) in socials" :key="index">
               <component :is="social.component" />
             </a>
@@ -55,7 +56,8 @@
       class="hero-banner-container"
       :class="[`${currentNetwork.name}`, { 'home-banner': route.path === '/' }]"
     >
-      <hero-arrows class="hero-image" />
+      <img v-if="currentNetwork.heroBannerImageUrl" class="hero-image" :src="currentNetwork.heroBannerImageUrl" />
+      <hero-arrows v-else class="hero-image" />
     </div>
     <transition
       enter-active-class="duration-200 ease-out"
@@ -70,7 +72,8 @@
           <div class="mobile-header-container">
             <div class="mobile-popover-navigation">
               <div class="popover-zksync-logo">
-                <zk-sync class="logo" />
+                <img v-if="currentNetwork.logoInverseUrl" :src="currentNetwork.logoInverseUrl" />
+                <zk-sync v-else class="logo" />
               </div>
               <div class="-mr-2">
                 <PopoverButton class="close-popover-button">
@@ -106,7 +109,7 @@
               </nav>
             </div>
             <div class="mobile-network-switch-container">
-              <WalletButton v-if="runtimeConfig.appEnvironment === 'prividium'" />
+              <WalletButton v-if="isPrividium" />
               <NetworkSwitch v-else />
               <LocaleSwitch
                 :value="(locale as string)"
@@ -119,7 +122,7 @@
                 "
               />
             </div>
-            <div class="mobile-socials-container">
+            <div v-if="!isPrividium" class="mobile-socials-container">
               <a :href="social.url" target="_blank" rel="noopener" v-for="(social, index) in socials" :key="index">
                 <component :is="social.component" />
               </a>
@@ -160,12 +163,17 @@ import { isAddress, isBlockNumber, isTransactionHash } from "@/utils/validators"
 const { changeLanguage } = useLocalization();
 const { t, locale } = useI18n({ useScope: "global" });
 const route = useRoute();
-const { currentNetwork } = useContext();
+const { currentNetwork, user } = useContext();
 const runtimeConfig = useRuntimeConfig();
+
+const isPrividium = runtimeConfig.appEnvironment === "prividium";
+const isAdmin = computed(() => user.value.loggedIn && user.value.roles.includes("admin"));
+const showAdminLinks = computed(() => !isPrividium || isAdmin.value);
+
 const navigation = reactive([
   {
     label: computed(() => t("header.nav.documentation")),
-    url: "https://docs.zksync.io/zksync-era/tooling/block-explorers",
+    url: runtimeConfig.links.docsUrl,
   },
 ]);
 
@@ -184,29 +192,33 @@ const blockExplorerLinks = reactive([
   },
 ]);
 
-const links = [
-  {
-    label: computed(() => t("header.nav.apiDocs")),
-    url: computed(() => `${currentNetwork.value.apiUrl}/docs`),
-  },
-  {
-    label: computed(() => t("header.nav.contractVerification")),
-    to: { name: "contract-verification" },
-  },
-];
+const toolsLinks = computed(() => {
+  const links = [];
 
-if (currentNetwork.value.bridgeUrl) {
-  links.push({
-    label: computed(() => t("header.nav.bridge")),
-    url: computed(() => currentNetwork.value.bridgeUrl!),
-  });
-}
+  if (showAdminLinks.value) {
+    links.push({
+      label: t("header.nav.apiDocs"),
+      url: `${currentNetwork.value.apiUrl}/docs`,
+    });
+    links.push({
+      label: t("header.nav.contractVerification"),
+      to: { name: "contract-verification" },
+    });
+  }
 
-const toolsLinks = reactive(links);
+  if (currentNetwork.value.bridgeUrl) {
+    links.push({
+      label: t("header.nav.bridge"),
+      url: currentNetwork.value.bridgeUrl!,
+    });
+  }
+
+  return links;
+});
 
 const socials = [
-  { url: "https://join.zksync.dev/", component: DiscordIcon },
-  { url: "https://x.com/zksync", component: TwitterIcon },
+  { url: runtimeConfig.links.discordUrl, component: DiscordIcon },
+  { url: runtimeConfig.links.xUrl, component: TwitterIcon },
 ];
 
 const hasContent = computed(() => {
@@ -240,6 +252,11 @@ const hasContent = computed(() => {
 
   .logo-container {
     @apply flex justify-start;
+
+    img,
+    svg {
+      @apply h-10;
+    }
   }
 
   .burger-button-container {
@@ -295,7 +312,7 @@ const hasContent = computed(() => {
   }
 
   .header-right-side {
-    @apply hidden items-stretch justify-end md:flex-1 lg:flex lg:w-0 gap-x-4;
+    @apply hidden items-stretch justify-end gap-x-4 md:flex-1 lg:flex lg:w-0;
 
     .language-switch {
       @apply mr-2;
@@ -335,7 +352,8 @@ const hasContent = computed(() => {
       .mobile-popover-navigation {
         @apply flex items-center justify-between;
 
-        .popover-zksync-logo svg {
+        .popover-zksync-logo svg,
+        .popover-zksync-logo img {
           @apply h-[42px] w-[42px] text-black;
         }
 

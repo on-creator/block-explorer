@@ -1,7 +1,13 @@
 <template>
   <div class="home">
-    <h1 class="title">{{ t("blockExplorer.title") }}</h1>
-    <div class="subtitle">{{ t("blockExplorer.subtitle") }}</div>
+    <h1 class="title">{{ t("blockExplorer.title", { brandName }) }}</h1>
+    <div class="subtitle">
+      {{
+        runtimeConfig.appEnvironment === "prividium"
+          ? t("blockExplorer.prividiumSubtitle", { brandName })
+          : t("blockExplorer.subtitle", { brandName })
+      }}
+    </div>
     <SearchForm class="search-form" />
     <div class="section">
       <NetworkStats
@@ -22,7 +28,13 @@
         <template v-if="(isBlocksPending || blocks) && !isBlocksFailed">
           <TableBlocks :data-testid="$testId.latestBlocksTable" :loading="isBlocksPending" :blocks="displayedBlocks">
             <template #not-found>
-              <p class="not-found">{{ t("blocks.table.notFoundHomePage") }}</p>
+              <p class="not-found">
+                {{
+                  runtimeConfig.appEnvironment === "prividium"
+                    ? t("blocks.table.prividiumNotFoundHomePage")
+                    : t("blocks.table.notFoundHomePage")
+                }}
+              </p>
             </template>
           </TableBlocks>
           <Button variant="outlined" color="primary" @click="router.push('blocks')">
@@ -44,7 +56,13 @@
         >
           <template #not-found>
             <TableBodyColumn>
-              <p class="not-found">{{ t("transactions.table.notFoundHomePage") }}</p>
+              <p class="not-found">
+                {{
+                  runtimeConfig.appEnvironment === "prividium"
+                    ? t("transactions.table.prividiumNotFoundHomePage")
+                    : t("transactions.table.notFoundHomePage")
+                }}
+              </p>
             </TableBodyColumn>
           </template>
         </TransactionsTable>
@@ -72,10 +90,13 @@ import TransactionsTable from "@/components/transactions/Table.vue";
 
 import useBlocks from "@/composables/useBlocks";
 import useNetworkStats from "@/composables/useNetworkStats";
+import useRuntimeConfig from "@/composables/useRuntimeConfig";
 
 import router from "@/router";
 
 const { t } = useI18n();
+const runtimeConfig = useRuntimeConfig();
+const { brandName } = runtimeConfig;
 const { fetch: fetchNetworkStats, pending: networkStatsPending, item: networkStats } = useNetworkStats();
 const { load: getBlocks, pending: isBlocksPending, failed: isBlocksFailed, data: blocks } = useBlocks();
 
@@ -132,7 +153,7 @@ getBlocks(1, new Date());
     }
     .blocks-view-all-arrow,
     .transactions-view-all-arrow {
-      @apply w-4 ml-1;
+      @apply ml-1 w-4;
     }
   }
 

@@ -58,7 +58,7 @@ export const TESTNET_BETA_NETWORK: NetworkConfig = {
   maintenance: false,
   published: true,
   baseTokenAddress: checksumAddress("0x000000000000000000000000000000000000800A"),
-  hostnames: ["https://testnet-beta.staging-scan-v2.zksync.dev/"],
+  hostnames: ["https://testnet.explorer.zksync.dev"],
 };
 
 export const useContractEventsMock = (params: any = {}) => {
@@ -174,6 +174,8 @@ export const useContextMock = (params: any = {}) => {
     currentNetwork: computed(() => TESTNET_NETWORK),
     user: computed(() => ({
       address: "0x000000000000000000000000000000000000800A",
+      wallets: ["0x000000000000000000000000000000000000800A"],
+      roles: [],
       loggedIn: true,
     })),
     identifyNetwork: () => undefined,

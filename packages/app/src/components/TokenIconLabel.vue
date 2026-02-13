@@ -26,10 +26,20 @@
           {{ name }}
         </div>
         <div class="token-badge">
-          <Badge v-if="bridged" color="primary" class="verified-badge" :tooltip="t('tokensView.table.bridged.tooltip')">
+          <Badge
+            v-if="bridged"
+            color="primary"
+            class="verified-badge"
+            :tooltip="t('tokensView.table.bridged.tooltip', { brandName })"
+          >
             {{ t("tokensView.table.bridged.title") }}
           </Badge>
-          <Badge v-else color="progress" class="verified-badge" :tooltip="t('tokensView.table.native.tooltip')">
+          <Badge
+            v-else
+            color="progress"
+            class="verified-badge"
+            :tooltip="t('tokensView.table.native.tooltip', { brandName })"
+          >
             {{ t("tokensView.table.native.title") }}
           </Badge>
         </div>
@@ -46,11 +56,14 @@ import { useImage } from "@vueuse/core";
 import AddressLink from "@/components/AddressLink.vue";
 import Badge from "@/components/common/Badge.vue";
 
+import useRuntimeConfig from "@/composables/useRuntimeConfig";
+
 import type { Hash } from "@/types";
 
 export type IconSize = "sm" | "md" | "lg" | "xl";
 
 const { t } = useI18n();
+const { brandName } = useRuntimeConfig();
 
 const props = defineProps({
   address: {
@@ -144,7 +157,7 @@ const { isReady: isImageLoaded } = useImage({ src: imgSource.value });
       @apply text-xs text-neutral-400;
     }
     .token-badge {
-      @apply flex items-center justify-end md:justify-start gap-x-1;
+      @apply flex items-center justify-end gap-x-1 md:justify-start;
     }
   }
 }
