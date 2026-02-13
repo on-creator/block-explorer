@@ -11,7 +11,7 @@ import type { NetworkConfig } from "@/configs";
 import { checksumAddress } from "@/utils/formatters";
 import { getWindowLocation } from "@/utils/helpers";
 
-export type UserContext = { address: string; wallets: string[]; loggedIn: true } | { loggedIn: false };
+export type UserContext = { address: string; wallets: string[]; roles: string[]; loggedIn: true } | { loggedIn: false };
 
 const network = useStorage("selectedNetwork_v2", DEFAULT_NETWORK.name);
 const isReady = ref(false);
@@ -76,7 +76,9 @@ export default (): Context => {
 
   function getL2Provider() {
     if (!l2Provider) {
-      l2Provider = new JsonRpcProvider(currentNetwork.value.rpcUrl);
+      l2Provider = new JsonRpcProvider(currentNetwork.value.rpcUrl, currentNetwork.value.l2ChainId, {
+        staticNetwork: true,
+      });
     }
     return l2Provider;
   }

@@ -14,27 +14,27 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 import useRuntimeConfig from "@/composables/useRuntimeConfig";
 const { t } = useI18n();
 const config = useRuntimeConfig();
 
-const navigation = reactive([
-  {
-    label: computed(() => t("footer.nav.docs")),
-    url: "https://docs.zksync.io/zksync-era/tooling/block-explorers",
-  },
-  {
-    label: computed(() => t("footer.nav.terms")),
-    url: "https://zksync.io/terms",
-  },
-  {
-    label: computed(() => t("footer.nav.contact")),
-    url: "https://zksync.io/contact",
-  },
-]);
+const isPrividium = config.appEnvironment === "prividium";
+
+const navigation = computed(() => {
+  const items = [
+    { label: t("footer.nav.docs"), url: config.links.docsUrl },
+    { label: t("footer.nav.terms"), url: config.links.termsOfServiceUrl },
+  ];
+
+  if (!isPrividium) {
+    items.push({ label: t("footer.nav.contact"), url: config.links.contactUsUrl });
+  }
+
+  return items;
+});
 </script>
 
 <style scoped lang="scss">

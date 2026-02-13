@@ -45,6 +45,7 @@ jobs:
       - name: Start Prividium App
         env:
           VITE_APP_ENVIRONMENT: prividium
+          VITE_BRAND_NAME: "Prividium™"
         working-directory: packages/app
         run: |
           # Start the app in development mode with Prividium config
@@ -70,7 +71,7 @@ jobs:
         working-directory: packages/app
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            npx cucumber-js --tags "@prividium"
+            npx cucumber-js -f progress --tags "@prividium"
         env:
           TARGET_ENV: http://127.0.0.1:3010
 
