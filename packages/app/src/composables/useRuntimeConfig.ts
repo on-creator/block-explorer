@@ -2,19 +2,19 @@ import type { NetworkConfig, RuntimeConfig } from "@/configs";
 
 import { checksumAddress } from "@/utils/formatters";
 export const DEFAULT_NETWORK: NetworkConfig = {
-  groupId: "era",
-  apiUrl: "https://block-explorer-api.sepolia.zksync.dev",
-  verificationApiUrl: "https://explorer.sepolia.era.zksync.dev",
-  bridgeUrl: "https://portal.zksync.io/bridge/?network=sepolia",
-  hostnames: ["https://sepolia.explorer.zksync.io"],
-  icon: "/images/icons/zksync-arrows.svg",
-  l1ExplorerUrl: "https://sepolia.etherscan.io",
-  l2ChainId: 300,
-  l2NetworkName: "ZKsync Era Sepolia Testnet",
+  groupId: "creator-chain",
+  apiUrl: "https://explorer-api.mainnet.oncreator.com",
+  verificationApiUrl: "https://explorer-api.mainnet.oncreator.com/api",
+  bridgeUrl: "",
+  hostnames: ["https://explorer.mainnet.oncreator.com"],
+  icon: "/images/icons/creator-chain.svg",
+  l1ExplorerUrl: "https://etherscan.io",
+  l2ChainId: 2787,
+  l2NetworkName: "Creator Chain Mainnet",
   maintenance: false,
-  name: "sepolia",
+  name: "mainnet",
   published: true,
-  rpcUrl: "https://sepolia.era.zksync.dev",
+  rpcUrl: "https://rpc.mainnet.oncreator.com",
   baseTokenAddress: checksumAddress("0x000000000000000000000000000000000000800A"),
 };
 
@@ -26,11 +26,11 @@ export default (): RuntimeConfig => {
   return {
     version: import.meta.env?.VITE_VERSION || "localhost",
     sentryDSN: runtimeConfig?.sentryDSN || import.meta.env?.VITE_SENTRY_DSN,
-    brandName: runtimeConfig?.brandName || import.meta.env?.VITE_BRAND_NAME || "ZKsync",
+    brandName: runtimeConfig?.brandName || import.meta.env?.VITE_BRAND_NAME || "Creator",
     appEnvironment: runtimeConfig?.appEnvironment || import.meta.env?.VITE_APP_ENVIRONMENT || "default",
     links: {
-      discordUrl: runtimeConfig?.links?.discordUrl || import.meta.env?.VITE_DISCORD_URL || "https://join.zksync.dev",
-      xUrl: runtimeConfig?.links?.xUrl || import.meta.env?.VITE_X_URL || "https://x.com/zksync",
+      discordUrl: runtimeConfig?.links?.discordUrl || import.meta.env?.VITE_DISCORD_URL || "https://discord.gg/oncreator",
+      xUrl: runtimeConfig?.links?.xUrl || import.meta.env?.VITE_X_URL || "https://x.com/oncreator_",
       docsUrl:
         runtimeConfig?.links?.docsUrl ||
         import.meta.env?.VITE_DOCS_URL ||
