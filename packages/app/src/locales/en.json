@@ -800,9 +800,9 @@
     "maintenance": {
         "title": "{network} is on maintainance",
         "description": "{network} is unavailable due to maintainance, you can find updates in our {twitter} or on {uptime}",
-        "twitterLink": "ZKsync Developers",
+        "twitterLink": "Creator Developers",
         "uptimeLink": "UpTime",
-        "twitterButton": "ZKsync Developers"
+        "twitterButton": "Creator Developers"
     },
     "tabs": {
         "transactions": "Transactions",

@@ -4,7 +4,7 @@
       <div class="header-container">
         <div class="logo-container">
           <router-link :to="{ name: 'home' }">
-            <span class="sr-only">ZKsync</span>
+            <span class="sr-only">Creator</span>
             <img v-if="currentNetwork.logoUrl" :src="currentNetwork.logoUrl" />
             <zk-sync-era v-else-if="currentNetwork.groupId === 'era'" />
             <zk-sync-arrows-logo v-else />

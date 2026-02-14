@@ -1,12 +1,12 @@
 {
   "name": "worker",
   "version": "0.0.0",
-  "title": "ZKsync Era Block Explorer Worker",
-  "description": "ZKsync Era Block Explorer Worker",
+  "title": "Creator Block Explorer Worker",
+  "description": "Creator Block Explorer Worker",
   "author": "Matter Labs",
   "private": true,
   "license": "MIT",
-  "repository": "https://github.com/matter-labs/block-explorer",
+  "repository": "https://github.com/on-creator/block-explorer",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
